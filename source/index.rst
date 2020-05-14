@@ -32,11 +32,3 @@ Our New Documentation
    DLP logs
    DLP policies
    
-   
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
