@@ -1,9 +1,0 @@
-Office 365 integration
-======================
-
-Integration prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Integration
-^^^^^^^^^^^
