@@ -1,7 +1,4 @@
 
-Our New Documentation
-===============================
-
 .. toctree::
    :maxdepth: 3
    :caption: Maintenance
