@@ -45,7 +45,7 @@ Audit logging can also be turned on via a PowerShell command:
 #. Run the following PowerShell command:
 
 .. code-block:: python
-
+   
    Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true
 
 Please note that applying these changes in Azure tenant might take some time. We recommend waiting a few hours before contacting Safetica Support with issues.
