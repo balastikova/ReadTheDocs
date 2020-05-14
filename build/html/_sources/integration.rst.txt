@@ -38,8 +38,4 @@ To enable this feature:
 #. Enable this feature by using the **Audit and log Office 365 file operations** slider.
 #. Click [✔]. An Azure tenant sign-in window may appear.
 
-You can learn more about Office 365 integration in this introduction video:
-
-.. raw:: html
-
-    <iframe width="560" height="315" src="_static/O365_Integration.mp4" frameborder="0" allowfullscreen></iframe>
+You can learn more about Office 365 integration in this `introduction video <https://www.youtube.com/watch?v=SC4WI-M5xcE&list=LLakBjpaeNAp6_EXqfAjA9qw&index=2&t=0s>`_.
