@@ -17,7 +17,7 @@ Safetica uses PowerShell commands to communicate with Microsoft Graph API. Graph
 
 From security perspective, we are not happy about this, and we intend to change the authentication method as soon as Microsoft enables us to do so. In the meantime, you can use the following commands to turn on Basic Authentication on your Safetica Management Server machine:
 
-.. code-block::
+.. code-block:: shell
    
    Command prompt
    winrm set winrm/config/client/auth @{Basic=”true”}
