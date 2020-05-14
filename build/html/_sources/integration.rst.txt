@@ -42,5 +42,4 @@ You can learn more about Office 365 integration in this introduction video:
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="O365 Integration.mp4" frameborder="0" allowfullscreen></iframe>
-
+    <iframe width="560" height="315" src="_static/O365_Integration.mp4" frameborder="0" allowfullscreen></iframe>

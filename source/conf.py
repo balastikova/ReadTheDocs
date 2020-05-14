@@ -33,7 +33,7 @@ master_doc = 'index'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-]
+    ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -71,5 +71,3 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 
 html_logo = "Safetica_logo_basic.png"
-
-
