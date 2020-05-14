@@ -8,7 +8,7 @@ If you are configuring your Office 365 integration for the first time or if you 
 *Note*: The Office 365 integration has changed considerably since earlier versions of Safetica, so we recommend updating to Safetica 9.5 or higher before following the steps described below. If an update is not possible and you are still using an older version of Safetica, you will have to perform many of the automated steps manually. You can learn more in this `knowledge base article <https://support.safetica.com/index.php?/Knowledgebase/Article/View/safetica-office-365-features>`_.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    integration prerequisites
    integration
