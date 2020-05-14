@@ -44,7 +44,7 @@ Audit logging can also be turned on via a PowerShell command:
 #. `Connect to Exchange Online PowerShell <https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell?view=exchange-ps>`_.
 #. Run the following PowerShell command:
 
-.. code-block:: ruby
+.. code-block:: PowerShell
    
    Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true
 
