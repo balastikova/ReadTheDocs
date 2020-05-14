@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Office 365 &#8212; New Safetica Doc Test 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Office 365 integration prerequisites" href="integration prerequisites.html" />
+    <link rel="prev" title="Integration settings" href="integration settings.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="office-365">
+<h1>Office 365<a class="headerlink" href="#office-365" title="Permalink to this headline">¶</a></h1>
+<p>In this article, you will learn more about Safetica 9.5 integration with Microsoft Exchange Online, OneDrive and SharePoint.</p>
+<p>If you are configuring your Office 365 integration for the first time or if you are setting up a new Azure tenant, please perform the steps mentioned <a class="reference internal" href="integration prerequisites.html#prerequisites"><span class="std std-ref">in the prerequisites</span></a>.</p>
+<p><em>Note</em>: The Office 365 integration has changed considerably since earlier versions of Safetica, so we recommend updating to Safetica 9.5 or higher before following the steps described below. If an update is not possible and you are still using an older version of Safetica, you will have to perform many of the automated steps manually. You can learn more in this <a class="reference external" href="https://support.safetica.com/index.php?/Knowledgebase/Article/View/safetica-office-365-features">knowledge base article</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integration prerequisites.html">Office 365 integration prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration prerequisites.html#allow-powershell-basic-authentication">Allow PowerShell Basic Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration prerequisites.html#turn-on-azure-audit-logging">Turn on Azure audit logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration prerequisites.html#disable-microsoft-security-defaults">Disable Microsoft security defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Office 365 integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration.html#safetica-exchange-online-audit-and-protection">Safetica Exchange Online audit and protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration.html#safetica-onedrive-and-sharepoint-audit">Safetica OneDrive and SharePoint audit</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Safetica_logo_basic.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">New Safetica Doc Test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Maintenance</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="integration settings.html">Integration settings</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Office 365</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="integration prerequisites.html">Office 365 integration prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration.html">Office 365 integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fortinet.html">Fortinet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Auditor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function settings.html">Function settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supervisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web control.html">Web control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application control.html">Application control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DLP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DLP logs.html">DLP logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DLP policies.html">DLP policies</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="integration settings.html">Integration settings</a><ul>
+      <li>Previous: <a href="integration settings.html" title="previous chapter">Integration settings</a></li>
+      <li>Next: <a href="integration prerequisites.html" title="next chapter">Office 365 integration prerequisites</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Safetica.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/office 365.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

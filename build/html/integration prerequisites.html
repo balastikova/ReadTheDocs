@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Office 365 integration prerequisites &#8212; New Safetica Doc Test 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Office 365 integration" href="integration.html" />
+    <link rel="prev" title="Office 365" href="office 365.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="office-365-integration-prerequisites">
+<span id="prerequisites"></span><h1>Office 365 integration prerequisites<a class="headerlink" href="#office-365-integration-prerequisites" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#allow-powershell-basic-authentication" id="id1">Allow PowerShell Basic Authentication</a></p></li>
+<li><p><a class="reference internal" href="#turn-on-azure-audit-logging" id="id2">Turn on Azure audit logging</a></p></li>
+<li><p><a class="reference internal" href="#disable-microsoft-security-defaults" id="id3">Disable Microsoft security defaults</a></p></li>
+</ul>
+</div>
+<p>In this article, you will learn which prerequisites need to be configured on your Safetica Management Server and Azure tenant for the Safetica Office 365 integration to work correctly.</p>
+<p>The steps described below need to be performed by all users who haven’t yet configured the Safetica Office 365 integration or who are setting up a new tenant. Also, if you are experiencing issues with Safetica Office 365 integration, please check these settings before contacting Safetica Support.</p>
+<p>Three areas need to be checked and configured:</p>
+<div class="section" id="allow-powershell-basic-authentication">
+<h2><a class="toc-backref" href="#id1">Allow PowerShell Basic Authentication</a><a class="headerlink" href="#allow-powershell-basic-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Safetica uses PowerShell commands to communicate with Microsoft Graph API. Graph API, however, only supports PowerShell Basic Authentication method: <a class="reference external" href="https://office365.uservoice.com/forums/264636-general/suggestions/20570782">https://office365.uservoice.com/forums/264636-general/suggestions/20570782</a></p>
+<p>From security perspective, we are not happy about this, and we intend to change the authentication method as soon as Microsoft enables us to do so. In the meantime, you can use the following commands to turn on Basic Authentication on your Safetica Management Server machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Command prompt
+winrm set winrm/config/client/auth @{Basic=”true”}
+
+PowerShell
+winrm set winrm/config/client/auth ‘@{Basic=”true”}’
+</pre></div>
+</div>
+</div>
+<div class="section" id="turn-on-azure-audit-logging">
+<h2><a class="toc-backref" href="#id2">Turn on Azure audit logging</a><a class="headerlink" href="#turn-on-azure-audit-logging" title="Permalink to this headline">¶</a></h2>
+<p>Before you can start setting up your Safetica Office 365 integration, you must turn on audit logging in your Azure tenant. In the past, it used to be enabled by default, so existing Safetica users with configured Office 365 integration have this setting enabled already. New users or users with new Azure tenants, however, must turn this configuration on manually. To turn on Azure audit logging, use the Security &amp; Compliance Center and perform the following steps</p>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://protection.office.com">https://protection.office.com</a>.</p></li>
+<li><p>In the Security &amp; Compliance Center, go to <strong>Search</strong> &gt; <strong>Audit log search</strong>. You will see a banner informing you that auditing must be turned on to record user and administrator activity.</p></li>
+<li><p>Click Turn on auditing.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/audit-log-enable.jpg"><img alt="_images/audit-log-enable.jpg" src="_images/audit-log-enable.jpg" style="width: 700px;" /></a>
+<p>If you do not see the banner with the <strong>Turn on auditing</strong> button, it means you have audit logging enabled and do not need to take any further actions.</p>
+<p>Audit logging can also be turned on via a PowerShell command:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell?view=exchange-ps">Connect to Exchange Online PowerShell</a>.</p></li>
+<li><p>Run the following PowerShell command:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true
+</pre></div>
+</div>
+<p>Please note that applying these changes in Azure tenant might take some time. We recommend waiting a few hours before contacting Safetica Support with issues.</p>
+</div>
+<div class="section" id="disable-microsoft-security-defaults">
+<h2><a class="toc-backref" href="#id3">Disable Microsoft security defaults</a><a class="headerlink" href="#disable-microsoft-security-defaults" title="Permalink to this headline">¶</a></h2>
+<p>From October 22th, 2019, Microsoft sets <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults">security defaults</a> for newly created Azure tenants to Enabled by default. This setting, however, blocks all unknown connections including Safetica. For Safetica Office 365 integration to work correctly, you need to disable security defaults for your tenant:</p>
+<ol class="arabic simple">
+<li><p>Sign in to the <a class="reference external" href="https://portal.azure.com">Azure portal</a> as a security administrator, conditional access administrator, or global administrator.</p></li>
+<li><p>Go to <strong>Azure Active Directory</strong> &gt; <strong>Properties</strong>.</p></li>
+<li><p>Click <strong>Manage security defaults</strong>.</p></li>
+<li><p>Set the <strong>Enable security defaults</strong> option to <strong>No</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+<p>This setting does not compromise security, it just allows your Azure tenant to communicate with third parties.</p>
+<p>Please note that applying these changes in Azure tenant might take some time. We recommend waiting a few hours before contacting Safetica Support with issues.</p>
+<p>After you perform these three steps, you can start configuring Safetica Office 365 integration in the desktop Safetica Management Console.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Safetica_logo_basic.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">New Safetica Doc Test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Maintenance</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="integration settings.html">Integration settings</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="office 365.html">Office 365</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Office 365 integration prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration.html">Office 365 integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fortinet.html">Fortinet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Auditor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function settings.html">Function settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Supervisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web control.html">Web control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application control.html">Application control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DLP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DLP logs.html">DLP logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DLP policies.html">DLP policies</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="integration settings.html">Integration settings</a><ul>
+  <li><a href="office 365.html">Office 365</a><ul>
+      <li>Previous: <a href="office 365.html" title="previous chapter">Office 365</a></li>
+      <li>Next: <a href="integration.html" title="next chapter">Office 365 integration</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Safetica.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/integration prerequisites.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
