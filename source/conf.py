@@ -58,7 +58,7 @@ extensions = [
 
 html_theme_options = {
     'collapse_navigation': False,
-    'html_show_sourcelink': False,
+#    'html_show_sourcelink': False,
     'logo_only': True,
     'navigation_depth': 3,
 }
